@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
 import { useToast } from "@/components/ui/use-toast"
+import { clientInitial } from "@/data/ClientInitial"
 
 export interface Client {
   id: number
@@ -29,7 +30,7 @@ interface ClientsContextType {
 const ClientsContext = createContext<ClientsContextType | undefined>(undefined)
 
 export function ClientsProvider({ children }: { children: ReactNode }) {
-  const [clients, setClients] = useState<Client[]>([])
+  const [clients, setClients] = useState<Client[]>(clientInitial)
   const { toast } = useToast()
 
   // Load clients from localStorage on initial render

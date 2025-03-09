@@ -45,12 +45,12 @@ export default function LoginPage() {
 
   return (
     <div className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-indigo-950 to-purple-900">
-      <Card className="w-full max-w-md bg-primary">
+      <Card className="w-full max-w-md bg-white">
         <CardHeader className="space-y-1 flex flex-col items-center">
           <div className=" relative mb-4">
             <Image src="/logo.png" alt="ENICOS Logo" width={268} height={368} className="" priority />
           </div>
-          <CardDescription className="text-center">Enter your credentials to access your account</CardDescription>
+            <CardDescription className="text-center">Ingrese sus credenciales para acceder a su cuenta</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
           <form onSubmit={handleLogin}>

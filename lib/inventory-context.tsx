@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
 import { useToast } from "@/components/ui/use-toast"
+import { initialInventoryData } from "@/data/InventoryInitial"
 
 export interface InventoryHistoryEntry {
   id: number
@@ -47,27 +48,10 @@ interface InventoryContextType {
 const InventoryContext = createContext<InventoryContextType | undefined>(undefined)
 
 // Sample initial inventory data
-const initialInventoryData: InventoryItem[] = [
-  {
-    id: 1,
-    name: "Producto de ejemplo",
-    value: 100.0,
-    quantity: 50,
-    status: "Activo",
-    transactionType: "Compra",
-    supplierId: 1,
-    createdBy: "Juan Pérez",
-    createdAt: new Date().toISOString(),
-    lastUpdated: null,
-    location: "Almacén principal",
-    description: "Un producto de ejemplo para mostrar en el inventario",
-    category: "General",
-    sku: "SKU-001",
-  },
-]
+
 
 export function InventoryProvider({ children }: { children: ReactNode }) {
-  const [inventory, setInventory] = useState<InventoryItem[]>([])
+  const [inventory, setInventory] = useState<InventoryItem[]>(initialInventoryData)
   const [inventoryHistory, setInventoryHistory] = useState<InventoryHistoryEntry[]>([])
   const { toast } = useToast()
 

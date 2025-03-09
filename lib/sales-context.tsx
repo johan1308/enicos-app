@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
 import { useToast } from "@/components/ui/use-toast"
 import { formatNumber } from "@/lib/utils"
+import { initialSales } from "@/data/SaleInitial"
 
 export interface ProductItem {
   id: number
@@ -72,7 +73,7 @@ interface SalesContextType {
 const SalesContext = createContext<SalesContextType | undefined>(undefined)
 
 export function SalesProvider({ children }: { children: ReactNode }) {
-  const [sales, setSales] = useState<Sale[]>([])
+  const [sales, setSales] = useState<Sale[]>(initialSales)
   const [currencyRate, setCurrencyRate] = useState<number>(64.6116) // Tasa de cambio fija
   const { toast } = useToast()
 
